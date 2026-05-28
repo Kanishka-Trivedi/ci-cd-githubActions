@@ -3,7 +3,7 @@ name: Deploy Node.js Application to AWS EC2
 on:
   push:
     branches:
-      -main
+      - main
 
 jobs:
   deploy:
@@ -15,11 +15,13 @@ jobs:
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v0.1.5
+
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ubuntu
           key: ${{ secrets.SSH_KEY }}
+
           script: |
             cd /home/ubuntu/ci-cd-githubActions
             git pull
-            docker compose up -d --build
+            sudo docker-compose up -d --build
