@@ -2,7 +2,7 @@ import express from "express";
 const app = express();
 const port = process.env.PORT || 8080;
 app.get("/", (req, res) => {
-    return res.json({ msg: "Hello From the server Kanishka."});
+    return res.json({ msg: "Hello From the server Kanishka1 deploy."});
 })
 
 app.listen(port, () => {
